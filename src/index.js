@@ -1,9 +1,27 @@
 import React from 'react';
-import { View } from 'react-native';
+import 'react-native-gesture-handler';
+import { View, StatusBar } from 'react-native';
 
-// import { Container } from './styles';
+import './config/ReactotronConfig';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
 
-export default function src() {
-    const a = 1;
-    return <View style={{ flex: 1 }} />;
+import { store, persistor } from './store';
+
+import App from './App';
+
+export default function Index() {
+    return (
+        <Provider store={store}>
+            <PersistGate persistor={persistor}>
+                <StatusBar
+                    translucent
+                    barStyle="light-content"
+                    backgroundColor="transparent"
+                />
+                <App />
+                <View />
+            </PersistGate>
+        </Provider>
+    );
 }
