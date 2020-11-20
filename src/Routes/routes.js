@@ -1,34 +1,23 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import {
-    SignSwitchNavigator,
-    UserSwitchNavigator,
-    DirectorSwitchNavigator,
-} from './navigators';
+import Home from '../pages/Home';
 
-selectBottomMenu = (isSigned, personality) => {
-    if (isSigned && personality === 'director') {
-        return 'Director';
-    }
+function selectInitialRoute(isFirstTime) {
+    if (isFirstTime) return 'Home';
 
-    if (isSigned) {
-        return 'User';
-    }
+    return 'Home';
+}
 
-    return 'Sign';
-};
-
-navigation = (isSigned, personality) =>
-    createSwitchNavigator(
+function navigation (isFirstTime) {
+    return createSwitchNavigator(
         {
-            Sign: SignSwitchNavigator,
-            User: UserSwitchNavigator,
-            Director: DirectorSwitchNavigator,
+            Home: Home,
         },
         {
-            initialRouteName: selectBottomMenu(isSigned, personality),
+            initialRouteName: selectInitialRoute(isFirstTime),
         }
-    );
+        );
+}
 
-export default (isSigned = false, personality = 'user') =>
-    createAppContainer(navigation(isSigned, personality));
+export default (isFirstTime = false) =>
+    createAppContainer(navigation(isFirstTime));
