@@ -15,7 +15,13 @@ export default [
         source: alelo,
     },
     {
-        names: ['alimentacao', 'food', 'alimentação'],
+        names: [
+            'alimentacao',
+            'food',
+            'alimentação',
+            'supermercado',
+            'mercado',
+        ],
         source: alimentacao,
     },
     {

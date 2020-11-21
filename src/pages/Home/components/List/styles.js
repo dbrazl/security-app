@@ -29,3 +29,7 @@ export const Image = styled.Image.attrs({
     border-radius: 25px;
     background: #eee;
 `;
+
+export const MarginBottom = styled.View`
+    margin-bottom: ${props => props.value}px;
+`;

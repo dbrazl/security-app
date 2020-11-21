@@ -24,7 +24,3 @@ export const Header = styled.View`
     margin-top: 50px;
     margin-bottom: 35px;
 `;
-
-export const MarginBottom = styled.View`
-    margin-bottom: ${props => props.value}px;
-`;

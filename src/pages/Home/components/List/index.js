@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import logos from '../../../../assets/js/logos';
 
-import { Title, Item, Image, Name } from './styles';
+import { Title, Item, Image, Name, MarginBottom } from './styles';
 
 function List({ category, items }) {
     function selectImage(title) {
@@ -15,7 +15,7 @@ function List({ category, items }) {
 
     function renderItem(item) {
         return (
-            <Item>
+            <Item key={`${item.id}`}>
                 <Image source={selectImage(item.title)} />
                 <Name>{item.title}</Name>
             </Item>
@@ -26,6 +26,7 @@ function List({ category, items }) {
         <>
             <Title>{category}</Title>
             {items.map(renderItem)}
+            <MarginBottom value={30} />
         </>
     );
 }

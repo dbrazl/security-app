@@ -27,7 +27,7 @@ function Model() {
         },
         {
             id: 4,
-            title: 'food',
+            title: 'Alimentacao',
             credential: 'daniel-b-l@hotmail.com',
             password: '123',
             category: 'Alimentação',
