@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BackHandler } from 'react-native';
 import PropTypes from 'prop-types';
 
 import View from './view';
 
 function Model({ navigation }) {
     const [modal, setModal] = useState(false);
+
+    useEffect(() => {
+        BackHandler.addEventListener('hardwareBackPress', event => {
+            goToHome();
+            return true;
+        });
+
+        return () => {
+            BackHandler.removeEventListener('hardwareBackPress');
+        };
+    }, []);
 
     const categories = [
         {
