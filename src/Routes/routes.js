@@ -1,6 +1,7 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import Home from '../pages/Home';
+import AddCredential from '../pages/AddCredential';
 
 function selectInitialRoute(isFirstTime) {
     if (isFirstTime) return 'Home';
@@ -8,15 +9,16 @@ function selectInitialRoute(isFirstTime) {
     return 'Home';
 }
 
-function navigation (isFirstTime) {
+function navigation(isFirstTime) {
     return createSwitchNavigator(
         {
             Home: Home,
+            AddCredential: AddCredential,
         },
         {
             initialRouteName: selectInitialRoute(isFirstTime),
         }
-        );
+    );
 }
 
 export default (isFirstTime = false) =>

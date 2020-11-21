@@ -21,7 +21,15 @@ import Empty from './components/Empty';
 import Modal from '../../components/Modal';
 import Input from '../../components/Input';
 
-function View({ items, modal, error, success, openCloseModal, submit }) {
+function View({
+    items,
+    modal,
+    error,
+    success,
+    openCloseModal,
+    submit,
+    goToSettings,
+}) {
     const categories = _.groupBy(items, 'category');
     const labels = Object.keys(categories);
     const values = Object.values(categories);
@@ -85,7 +93,7 @@ function View({ items, modal, error, success, openCloseModal, submit }) {
             <PageLayout showAddButton onPressButton={openCloseModal}>
                 <Header>
                     <Title>Senhas</Title>
-                    <Button>
+                    <Button onPress={goToSettings}>
                         <Settings />
                     </Button>
                 </Header>
@@ -110,6 +118,7 @@ View.propTypes = {
     success: PropTypes.bool,
     openCloseModal: PropTypes.func,
     submit: PropTypes.func,
+    goToSettings: PropTypes.func,
 };
 
 View.defaultProps = {
@@ -119,6 +128,7 @@ View.defaultProps = {
     success: false,
     openCloseModal: () => {},
     submit: () => {},
+    goToSettings: () => {},
 };
 
 export default View;

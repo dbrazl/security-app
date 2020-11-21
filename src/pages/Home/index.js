@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Keyboard } from 'react-native';
+import PropTypes from 'prop-types';
 
 import View from './view';
 
-function Model() {
+function Model({ navigation }) {
     const [modal, setModal] = useState(false);
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -55,6 +56,10 @@ function Model() {
         Keyboard.dismiss();
     }
 
+    function goToSettings() {
+        navigation.navigate('AddCredential');
+    }
+
     return (
         <View
             items={items}
@@ -63,8 +68,19 @@ function Model() {
             success={success}
             openCloseModal={openCloseModal}
             submit={submit}
+            goToSettings={goToSettings}
         />
     );
 }
+
+Model.propTypes = {
+    navigation: PropTypes.object,
+};
+
+Model.defaultProps = {
+    navigation: {
+        navigate: () => {},
+    },
+};
 
 export default Model;
