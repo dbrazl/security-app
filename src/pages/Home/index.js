@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Keyboard } from 'react-native';
 
 import View from './view';
 
 function Model() {
+    const [modal, setModal] = useState(false);
+    const [error, setError] = useState(false);
+    const [success, setSuccess] = useState(false);
+
     const items = [
         {
             id: 1,
@@ -41,7 +46,25 @@ function Model() {
         },
     ];
 
-    return <View items={items} />;
+    function openCloseModal(event) {
+        setModal(!modal);
+        if (error) setError(false);
+    }
+
+    function submit() {
+        Keyboard.dismiss();
+    }
+
+    return (
+        <View
+            items={items}
+            modal={modal}
+            error={error}
+            success={success}
+            openCloseModal={openCloseModal}
+            submit={submit}
+        />
+    );
 }
 
 export default Model;

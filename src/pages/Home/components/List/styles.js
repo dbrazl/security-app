@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler/GestureButtons';
 
 export const Title = styled.Text`
     font-size: 18px;
@@ -7,14 +6,18 @@ export const Title = styled.Text`
     margin-bottom: 20px;
 `;
 
-export const Item = styled(RectButton)`
+export const Item = styled.TouchableOpacity`
     display: flex;
     align-items: center;
     flex-direction: row;
     margin-bottom: 20px;
 `;
 
-export const Name = styled.Text`
+export const Name = styled.Text.attrs({
+    numberOfLines: 1,
+    ellipsizeMode: 'tail',
+})`
+    width: 80%;
     font-size: 18px;
     font-family: 'Roboto-Regular';
     color: #808080;

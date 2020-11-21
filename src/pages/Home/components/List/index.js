@@ -1,14 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import logos from '../../../../assets/js/logos';
+import other from '../../../../assets/logos/other.png';
 
 import { Title, Item, Image, Name, MarginBottom } from './styles';
 
 function List({ category, items }) {
     function selectImage(title) {
-        const obj = logos.filter(logo =>
-            logo.names.includes(title.toLowerCase())
-        )[0];
+        let obj = logos.filter(logo => {
+            const { names } = logo;
+            let have = false;
+
+            names.forEach(name => {
+                if (title.toLowerCase().includes(name)) {
+                    have = true;
+                }
+            });
+
+            return have;
+        })[0];
+
+        if (!obj) obj = { source: other };
 
         return obj.source;
     }
