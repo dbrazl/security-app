@@ -7,6 +7,7 @@ export const Container = styled.TouchableOpacity`
     justify-content: ${props => (props.isRight ? 'flex-end' : 'flex-start')};
     flex-direction: row;
     margin-top: ${props => props.marginTop}px;
+    margin-bottom: ${props => props.marginBottom}px;
 `;
 
 export const ArrowLeft = styled(Icon).attrs({
