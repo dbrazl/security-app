@@ -11,6 +11,7 @@ export const Container = styled.View`
     display: flex;
     align-items: center;
     justify-content: center;
+    ${props => props.modalHeight && `max-height: ${props.modalHeight}`};
 `;
 
 export const Background = styled.TouchableOpacity`

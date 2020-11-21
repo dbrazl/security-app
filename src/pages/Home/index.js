@@ -57,7 +57,11 @@ function Model({ navigation }) {
     }
 
     function goToSettings() {
-        navigation.navigate('AddCredential');
+        navigation.navigate('Settings');
+    }
+
+    function goToAddCrendential() {
+        navigation.navigate('AddCrendential');
     }
 
     return (
@@ -69,6 +73,7 @@ function Model({ navigation }) {
             openCloseModal={openCloseModal}
             submit={submit}
             goToSettings={goToSettings}
+            goToAddCrendential={goToAddCrendential}
         />
     );
 }

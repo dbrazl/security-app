@@ -29,6 +29,7 @@ function View({
     openCloseModal,
     submit,
     goToSettings,
+    goToAddCrendential,
 }) {
     const categories = _.groupBy(items, 'category');
     const labels = Object.keys(categories);
@@ -90,7 +91,7 @@ function View({
 
     return (
         <>
-            <PageLayout showAddButton onPressButton={openCloseModal}>
+            <PageLayout showAddButton onPressButton={goToAddCrendential}>
                 <Header>
                     <Title>Senhas</Title>
                     <Button onPress={goToSettings}>
@@ -119,6 +120,7 @@ View.propTypes = {
     openCloseModal: PropTypes.func,
     submit: PropTypes.func,
     goToSettings: PropTypes.func,
+    goToAddCrendential: PropTypes.func,
 };
 
 View.defaultProps = {
@@ -129,6 +131,7 @@ View.defaultProps = {
     openCloseModal: () => {},
     submit: () => {},
     goToSettings: () => {},
+    goToAddCrendential: () => {},
 };
 
 export default View;
