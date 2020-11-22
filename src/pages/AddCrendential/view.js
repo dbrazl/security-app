@@ -18,16 +18,16 @@ import Input from '../../components/Input';
 import Modal from '../../components/Modal';
 
 function View({ height, modal, openCloseModal, goToHome, categories }) {
-    function renderCategorie(categorie) {
+    function renderCategorie(categorie, index) {
         if (categorie.selected)
             return (
-                <SelectItem>
+                <SelectItem key={`${index}`}>
                     <SelectText selected>{categorie.name}</SelectText>
                 </SelectItem>
             );
 
         return (
-            <SelectItem>
+            <SelectItem key={`${index}`}>
                 <SelectText>{categorie.name}</SelectText>
             </SelectItem>
         );

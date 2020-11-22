@@ -45,10 +45,14 @@ export const SelectItem = styled.TouchableOpacity`
     justify-content: center;
 `;
 
-export const SelectText = styled.Text`
+export const SelectText = styled.Text.attrs({
+    numberOfLines: 1,
+    ellipsizeMode: 'tail',
+})`
     font-size: 18px;
     font-family: 'Roboto-Regular';
     color: ${props => (props.selected ? '#000' : '#808080')};
+    max-width: 200px;
 `;
 
 export const Triangle = styled.Image.attrs({

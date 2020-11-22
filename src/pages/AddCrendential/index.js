@@ -6,6 +6,7 @@ import View from './view';
 
 function Model({ navigation }) {
     const [modal, setModal] = useState(false);
+    const [newCredencial, setNewCredencial] = useState(false);
 
     useEffect(() => {
         BackHandler.addEventListener('hardwareBackPress', event => {
