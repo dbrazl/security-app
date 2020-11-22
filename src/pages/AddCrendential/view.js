@@ -34,7 +34,10 @@ function View({
 
         if (index === 0)
             categories.push(
-                <AddButton onPress={createCancelNewCategorie}>
+                <AddButton
+                    onPress={createCancelNewCategorie}
+                    key={`add-${index}`}
+                >
                     <Add />
                     <Message>Adicionar categoria</Message>
                 </AddButton>

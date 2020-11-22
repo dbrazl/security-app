@@ -8,9 +8,9 @@ import TutorialPage1 from '../pages/Tutorial/Page1';
 import TutorialPage2 from '../pages/Tutorial/Page2';
 
 function selectInitialRoute(isFirstTime) {
-    if (isFirstTime) return 'Home';
+    if (isFirstTime) return 'TutorialPage1';
 
-    return 'TutorialPage1';
+    return 'Home';
 }
 
 function navigation(isFirstTime) {

@@ -6,7 +6,7 @@ export default reducers => {
         {
             key: 'security-app',
             storage,
-            whitelist: ['user'],
+            whitelist: ['credential'],
         },
         reducers
     );

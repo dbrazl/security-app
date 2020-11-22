@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import createRouter from './Routes/routes';
 
 export default function App() {
-    const isFirstTime = true;
+    const isFirstTime = false;
 
     const Routes = createRouter(isFirstTime);
 

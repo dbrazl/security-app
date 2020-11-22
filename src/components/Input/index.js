@@ -4,15 +4,24 @@ import PropTypes from 'prop-types';
 import { Field } from './styles';
 import { Dimensions } from 'react-native';
 
-function Input({ width, placeholder, onChange, value, marginTop, textAlign }) {
+function Input({
+    width,
+    placeholder,
+    onChangeText,
+    value,
+    marginTop,
+    textAlign,
+    secureTextEntry,
+}) {
     return (
         <Field
             width={width}
             placeholder={placeholder}
-            onChange={onChange}
+            onChangeText={onChangeText}
             value={value}
             marginTop={marginTop}
             textAlign={textAlign}
+            secureTextEntry={secureTextEntry}
         />
     );
 }
@@ -20,19 +29,21 @@ function Input({ width, placeholder, onChange, value, marginTop, textAlign }) {
 Input.propTypes = {
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     placeholder: PropTypes.string,
-    onChange: PropTypes.func,
+    onChangeText: PropTypes.func,
     value: PropTypes.string,
     marginTop: PropTypes.number,
     textAlign: PropTypes.string,
+    secureTextEntry: PropTypes.bool,
 };
 
 Input.defaultProps = {
     width: '100%',
     placeholder: 'Campo',
-    onChange: () => {},
+    onChangeText: () => {},
     value: '',
     marginTop: 0,
     textAlign: 'center',
+    secureTextEntry: false,
 };
 
 export default Input;
