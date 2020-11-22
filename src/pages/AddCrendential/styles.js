@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/Feather';
 
 import fingerprint from '../../assets/illustration/fingerprint.png';
 import triangle from '../../assets/icons/triangle.png';
@@ -20,7 +21,7 @@ export const Fingerprint = styled.Image.attrs({
 export const Message = styled.Text`
     font-size: 18px;
     font-family: 'Roboto-Regular';
-    color: #808080;
+    color: ${props => (props.color ? props.color : '#808080')};
     margin: 20px 0;
 `;
 
@@ -66,4 +67,32 @@ export const Scroll = styled.ScrollView.attrs({
     showsVerticalScrollIndicator: false,
 })`
     height: 265px;
+`;
+
+export const Button = styled.TouchableOpacity`
+    height: 45px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: ${props => (props.background ? props.background : '#8DBFDB')};
+    margin-top: ${props => (props.marginTop ? props.marginTop : 0)}px;
+`;
+
+export const AddButton = styled.TouchableOpacity`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 45px;
+    margin-bottom: 10px;
+`;
+
+export const Add = styled(Icon).attrs({
+    name: 'plus',
+    size: 24,
+    color: '#808080',
+})`
+    margin-right: 10px;
 `;

@@ -6,7 +6,7 @@ import View from './view';
 
 function Model({ navigation }) {
     const [modal, setModal] = useState(false);
-    const [newCredencial, setNewCredencial] = useState(false);
+    const [newCategorie, setNewCategorie] = useState(false);
 
     useEffect(() => {
         BackHandler.addEventListener('hardwareBackPress', event => {
@@ -54,12 +54,18 @@ function Model({ navigation }) {
         navigation.navigate('Home');
     }
 
+    function createCancelNewCategorie() {
+        setNewCategorie(!newCategorie);
+    }
+
     return (
         <View
             modal={modal}
             openCloseModal={openCloseModal}
             goToHome={goToHome}
             categories={categories}
+            newCategorie={newCategorie}
+            createCancelNewCategorie={createCancelNewCategorie}
         />
     );
 }
